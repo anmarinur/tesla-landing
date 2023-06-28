@@ -1,0 +1,25 @@
+---
+import Section from "./Section.astro";
+---
+
+<Section title="Accessories" color="black">
+  <div slot="footer" class="flex-col">
+    <a href="#" class="bg-zinc-900 border-[3px] border-zinc-900 text-white rounded font-medium px-24 py-2 text-sm hover:bg-white hover:text-black hover:border-white transition-colors">
+      Shop Now
+    </a>
+    <nav class="absolute bottom-2 left-1/2 transform -translate-x-1/2">
+      <ul class="flex text-[0.85rem] text-zinc-600 [&>li>a]:inline-block [&>li>a]:px-2 [&>li>a]:py-2">
+        <li><a href="#">Tesla © 2023</a></li>
+        <li><a href="#">Privacy & Legal</a></li>
+        <li><a href="#">Vehicle Recalls</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Get Updates</a></li>
+        <li><a href="#">Locations</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div slot="background" class="absolute top-0 bottom-0 z-10 h-full w-full">
+    <img src="/accessories.avif" alt="Model S" class="h-full w-full object-cover object-center ">
+  </div>
+</Section>
