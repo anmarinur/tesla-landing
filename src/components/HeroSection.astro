@@ -1,22 +1,12 @@
-<section class="landing-section bg-black h-screen w-screen text-center relative overflow-hidden"
-  data-header-color="white">
+---
+import Section from "./Section.astro";
+---
 
-  <div class="z-30 relative h-full flex flex-col">
-    <header>
-      <h2 class="text-white pt-40 text-[40px] font-medium">Experience Tesla</h2>
-      <p class="text-white text-base">Schedule a Demo Drive Today</p>
-    </header>
-
-    <footer class="flex flex-col flex-grow flex-nowrap justify-end pb-20">
-      <div>
-        <a href="#" class="text-white border-white bg-white/5 backdrop-blur-sm border-[3px] rounded font-medium px-24 py-2 text-sm hover:bg-white hover:text-black transition-colors">
-          Demo Drive
-        </a>
-      </div>
-    </footer>
+<Section title="Experience Tesla" subtitle="Schedule a Demo Drive Today" color="white">
+  <div slot="footer">
+    <a href="#" class="text-white border-white bg-white/5 backdrop-blur-sm border-[3px] rounded font-medium px-24 py-2 text-sm hover:bg-white hover:text-black transition-colors">
+      Demo Drive
+    </a>
   </div>
-
-  <div class="absolute top-0 bottom-0 z-10 h-full w-full">
-    <video class="object-center object-cover h-full w-full" autoplay muted loop src="/video.mp4"></video>
-  </div>
-</section>
+  <video slot="background" class="object-center object-cover h-full w-full" autoplay muted loop src="/video.mp4"></video>
+</Section>
