@@ -4,12 +4,12 @@ import Logo from "./Logo.astro";
 
 <header id="landing-header"
   class="py-4 px-9 flex items-center fixed top-0 w-full justify-between font-bold z-40 text-white">
-  <div class="flex flex-grow basis-0">
+  <div class="flex flex-grow basis-0 py-2">
     <Logo />
   </div>
 
   <nav>
-    <ul class="flex text-sm [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2 [&>li>a]:transition-colors [&>li>a]:duration-300">
+    <ul class="hidden lg1080:flex text-sm [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2 [&>li>a]:transition-colors [&>li>a]:duration-300">
       <li><a href="#">Model S</a></li>
       <li><a href="#">Model 3</a></li>
       <li><a href="#">Model X</a></li>
@@ -22,9 +22,9 @@ import Logo from "./Logo.astro";
 
   <nav class="flex flex-grow justify-end basis-0">
     <ul class="flex text-sm [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2 [&>li>a]:transition-colors [&>li>a]:duration-300">
-      <li><a href="#">Shop</a></li>
-      <li><a href="#">Account</a></li>
-      <li><a href="#">Menu</a></li>
+      <li class="hidden lg1080:flex"><a href="#">Shop</a></li>
+      <li class="hidden lg1080:flex"><a href="#">Account</a></li>
+      <li id="menu-item" class="lg1080:bg-transparent bg-black/5 backdrop-blur-lg rounded transition-all duration-500"><a href="#">Menu</a></li>
     </ul>
   </nav>
 
@@ -42,6 +42,51 @@ import Logo from "./Logo.astro";
     >
   </div>
 </header>
+
+<article class="relative z-50">
+  <div class="absolute right-0 top-0 w-80 h-screen py-16 px-8 bg-white hidden" id="menu-responsive">
+    <span id="close-menu" class="relative right-0 text-4xl font-light text-end py-4 cursor-pointer">x</span>
+    <ul class="flex flex-col gap-y-4">
+      <li class="flex lg1080:hidden"><a href="#">Model S</a></li>
+      <li class="flex lg1080:hidden"><a href="#">Model 3</a></li>
+      <li class="flex lg1080:hidden"><a href="#">Model X</a></li>
+      <li class="flex lg1080:hidden"><a href="#">Model Y</a></li>
+      <li class="flex lg1080:hidden"><a href="#">Solar Roof</a></li>
+      <li class="flex lg1080:hidden"><a href="#">Solar Panels</a></li>
+      <li class="flex lg1080:hidden"><a href="#">Powerwall</a></li>
+      <li><a href="#">Existing Inventory</a></li>
+      <li><a href="#">Used Inventory</a></li>
+      <li><a href="#">Trade-In</a></li>
+      <li><a href="#">Demo Drive</a></li>
+      <li><a href="#">Insurance</a></li>
+      <li><a href="#">Fleet</a></li>
+      <li><a href="#">Commercial Energy</a></li>
+      <li><a href="#">Utilities</a></li>
+      <li><a href="#">Charging</a></li>
+      <li><a href="#">Careers</a></li>
+      <li><a href="#">Find Us</a></li>
+    </ul>
+  </div>
+</article>
+
+<script>
+
+  const menuResponsive = document.querySelector("#menu-responsive");
+  const menuItem = document.querySelector("#menu-item")
+  const menuClose = document.querySelector("#close-menu")
+
+
+  menuItem.addEventListener("click", ()=> {
+    console.log("click")
+    menuResponsive.classList.remove("hidden")
+    menuResponsive.classList.add("flex", "flex-col", "gap-y-4")
+  })
+
+  menuClose.addEventListener("click", ()=> {
+    menuResponsive.classList.remove("flex", "flex-col", "gap-y-4")
+    menuResponsive.classList.add("hidden")
+  })
+</script>
 
 <script>
   const listItem = document.querySelectorAll("#landing-header li")
