@@ -24,7 +24,7 @@ import Logo from "./Logo.astro";
     <ul class="flex text-sm [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2 [&>li>a]:transition-colors [&>li>a]:duration-300">
       <li class="hidden lg1080:flex"><a href="#">Shop</a></li>
       <li class="hidden lg1080:flex"><a href="#">Account</a></li>
-      <li id="menu-item" class="lg1080:bg-transparent bg-black/5 backdrop-blur-lg rounded transition-all duration-500"><a href="#">Menu</a></li>
+      <li id="menu-item" class="lg1080:bg-transparent bg-black/10 rounded"><a href="#">Menu</a></li>
     </ul>
   </nav>
 
@@ -43,7 +43,7 @@ import Logo from "./Logo.astro";
   </div>
 </header>
 
-<article class="relative z-50">
+<article id="menu" class="relative z-50">
   <div class="absolute right-0 top-0 w-80 h-screen py-16 px-8 bg-white hidden" id="menu-responsive">
     <span id="close-menu" class="relative right-0 text-4xl font-light text-end py-4 cursor-pointer">x</span>
     <ul class="flex flex-col gap-y-4">
@@ -74,10 +74,13 @@ import Logo from "./Logo.astro";
   const menuResponsive = document.querySelector("#menu-responsive");
   const menuItem = document.querySelector("#menu-item")
   const menuClose = document.querySelector("#close-menu")
+  const menu = document.querySelectorAll("#menu li")
 
+  menu.forEach((item) => {
+    item.classList.add("hover:bg-black/5", "hover:backdrop-blur-lg", "hover:rounded", "hover:trasition-all", "hover:duration-300")
+  })
 
   menuItem.addEventListener("click", ()=> {
-    console.log("click")
     menuResponsive.classList.remove("hidden")
     menuResponsive.classList.add("flex", "flex-col", "gap-y-4")
   })
